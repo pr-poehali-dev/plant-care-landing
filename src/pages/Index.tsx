@@ -5,6 +5,9 @@ const IMG_HERO = "https://cdn.poehali.dev/projects/1f312611-88f0-4b4f-9a03-d7e5a
 const IMG_CARE = "https://cdn.poehali.dev/projects/1f312611-88f0-4b4f-9a03-d7e5a41285bc/files/ffc4e3ca-5122-46f9-bca1-615ded0ab0d3.jpg";
 const IMG_FLATLAY = "https://cdn.poehali.dev/projects/1f312611-88f0-4b4f-9a03-d7e5a41285bc/files/ec789850-39d5-47ee-8ab1-bb336e79ff3b.jpg";
 const IMG_SHELF = "https://cdn.poehali.dev/projects/1f312611-88f0-4b4f-9a03-d7e5a41285bc/files/39cf7c37-bb16-42d1-b9bb-59fb1012c069.jpg";
+const IMG_BEFORE_AFTER = "https://cdn.poehali.dev/projects/1f312611-88f0-4b4f-9a03-d7e5a41285bc/files/fe71aa83-3071-4b4d-979f-2d17561c8fbf.jpg";
+const IMG_MONSTERA = "https://cdn.poehali.dev/projects/1f312611-88f0-4b4f-9a03-d7e5a41285bc/files/db327530-c5bf-405d-91d3-514e07d67309.jpg";
+const IMG_SHELF2 = "https://cdn.poehali.dev/projects/1f312611-88f0-4b4f-9a03-d7e5a41285bc/files/1779a1d4-7609-4260-891f-d9d530709711.jpg";
 
 const modules = [
   { day: "День 1", icon: "Stethoscope", title: "Глубокая диагностика", desc: "Читаем растение как медкарту, находим причину проблем до того, как начинаем лечить" },
@@ -20,6 +23,39 @@ const bonuses = [
   { icon: "FileText", title: "PDF с 7 чек-листами", desc: "Для печати и использования прямо у растений. Диагностика, уход, полив, пересадка и другие" },
   { icon: "Table", title: "Excel-журнал", desc: "7 листов с формулами для ведения дневника растений. Расписание полива, удобрений, заметки" },
   { icon: "BookOpen", title: "Справочник pH и света", desc: "Подробные данные по 27 популярным растениям, оптимальная кислотность почвы и освещение" },
+];
+
+const reviews = [
+  {
+    name: "Марина, 41 год",
+    text: "Три года убивала фикусы один за другим. После первого урока по диагностике наконец поняла, что у меня проблема с поливом, а не с сортом растения. Фикус стоит уже 8 месяцев.",
+    img: IMG_BEFORE_AFTER,
+    label: "до и после",
+  },
+  {
+    name: "Ольга, 38 лет",
+    text: "Купила монстеру, и она начала желтеть уже через две недели. Прошла курс за выходные, применила советы по грунту и свету. Сейчас растение даёт по новому листу каждый месяц.",
+    img: IMG_MONSTERA,
+    label: "монстера через месяц",
+  },
+  {
+    name: "Светлана, 46 лет",
+    text: "Думала, что у меня просто не те растения для моей квартиры. Оказалось, я неправильно подбирала грунт и пересаживала в неподходящее время. Теперь у меня 12 здоровых горшков.",
+    img: IMG_SHELF2,
+    label: "коллекция после курса",
+  },
+  {
+    name: "Татьяна, 52 года",
+    text: "Спасла орхидею, которую уже собиралась выбросить. Урок про диагностику корней открыл глаза. Через три недели она выпустила новый цветонос. Это настоящее чудо.",
+    img: IMG_FLATLAY,
+    label: "орхидея ожила",
+  },
+  {
+    name: "Наталья, 35 лет",
+    text: "Я смотрела кучу роликов, читала статьи, спрашивала у ИИ. Всё равно не понимала, что делаю не так. Здесь наконец-то всё по шагам. После курса растения перестали умирать.",
+    img: IMG_CARE,
+    label: "результат за 7 дней",
+  },
 ];
 
 const faqs = [
@@ -112,8 +148,8 @@ export default function Index() {
           <div className="flex gap-10 mt-14 animate-fade-up-delay-3">
             {[
               { num: "7", label: "дней практики" },
-              { num: "10", label: "модулей курса" },
               { num: "3", label: "бонуса в подарок" },
+              { num: "5", label: "отзывов учениц" },
             ].map(({ num, label }) => (
               <div key={label}>
                 <div className="font-cormorant text-4xl font-bold" style={{ color: '#5a9e78' }}>{num}</div>
@@ -144,10 +180,14 @@ export default function Index() {
                   </div>
                 ))}
               </div>
-              <p className="mt-8 text-lg font-cormorant italic" style={{ color: 'rgba(59,42,26,0.5)' }}>
-                Это не потому что у тебя «нет таланта» к растениям.<br />
-                Просто тебя никто не научил правильно.
-              </p>
+              <div className="mt-10 rounded-2xl px-6 py-5 border-l-4" style={{ background: 'rgba(46,94,71,0.07)', borderLeftColor: '#2e5e47' }}>
+                <p className="font-cormorant text-2xl md:text-3xl font-semibold italic leading-snug" style={{ color: '#2e5e47' }}>
+                  Это не потому что у тебя «нет таланта» к растениям.
+                </p>
+                <p className="font-cormorant text-2xl md:text-3xl font-semibold italic leading-snug mt-1" style={{ color: '#3b2a1a' }}>
+                  Просто тебя никто не научил правильно.
+                </p>
+              </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden shadow-xl">
               <img src={IMG_FLATLAY} alt="Растения и уход" className="w-full h-[480px] object-cover" />
@@ -179,9 +219,9 @@ export default function Index() {
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {[
                   { icon: "Clock", text: "20–40 мин. в день" },
-                  { icon: "FileText", text: "Текст с фотографиями" },
                   { icon: "Infinity", text: "Доступ навсегда" },
                   { icon: "CheckSquare", text: "Практические задания" },
+                  { icon: "Smartphone", text: "Читай с телефона" },
                 ].map(({ icon, text }) => (
                   <div key={text} className="flex items-center gap-3" style={{ color: 'rgba(255,255,255,0.75)' }}>
                     <span className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'rgba(90,158,120,0.2)' }}>
@@ -283,6 +323,46 @@ export default function Index() {
         </div>
       </section>
 
+      {/* REVIEWS */}
+      <section className="py-24 relative overflow-hidden" style={{ background: '#1e3a2f' }}>
+        <div className="absolute inset-0 texture-grain opacity-30" />
+        <div className="max-w-5xl mx-auto px-6 relative">
+          <div className="text-center mb-12">
+            <span className="font-golos text-sm font-semibold uppercase tracking-widest" style={{ color: 'rgba(90,158,120,0.8)' }}>Отзывы учениц</span>
+            <h2 className="font-cormorant text-5xl font-bold text-white mt-3">
+              Они уже <span className="italic" style={{ color: '#5a9e78' }}>спасли свои растения</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {reviews.map((r, i) => (
+              <div key={i} className="rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col" style={{ background: 'rgba(255,255,255,0.06)', borderColor: 'rgba(255,255,255,0.1)' }}>
+                <div className="relative h-44 overflow-hidden">
+                  <img src={r.img} alt={r.label} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(30,58,47,0.7) 0%, transparent 60%)' }} />
+                  <div className="absolute bottom-3 left-3">
+                    <span className="text-xs font-golos font-semibold px-2 py-1 rounded-full" style={{ background: 'rgba(90,158,120,0.35)', color: '#5a9e78', backdropFilter: 'blur(8px)' }}>
+                      {r.label}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-5 flex-1 flex flex-col gap-3">
+                  <div className="flex gap-0.5">
+                    {[1,2,3,4,5].map(s => (
+                      <span key={s} style={{ color: '#b87333', fontSize: 14 }}>★</span>
+                    ))}
+                  </div>
+                  <p className="font-golos text-sm leading-relaxed flex-1" style={{ color: 'rgba(255,255,255,0.75)' }}>
+                    «{r.text}»
+                  </p>
+                  <p className="font-golos text-xs font-semibold" style={{ color: '#5a9e78' }}>{r.name}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-24 relative" style={{ background: '#f7f3ed' }}>
         <div className="absolute inset-0 leaf-bg" />
@@ -363,8 +443,8 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-            {["7 уроков текстом", "PDF-чек-листы", "Excel-журнал", "Справочник растений"].map((item) => (
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4 max-w-xl mx-auto">
+            {["PDF-чек-листы", "Excel-журнал", "Справочник растений"].map((item) => (
               <div key={item} className="flex items-center gap-2 font-golos text-sm" style={{ color: 'rgba(255,255,255,0.55)' }}>
                 <Icon name="Check" size={14} style={{ color: '#5a9e78', flexShrink: 0 } as React.CSSProperties} />
                 {item}
