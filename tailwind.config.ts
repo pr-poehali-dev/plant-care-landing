@@ -68,14 +68,14 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				plant: {
-					deep: '#2d5a27',
-					mid: '#4a7c3f',
-					light: '#7aad6a',
-					cream: '#f5f0e8',
-					ochre: '#c8863a',
-					terracotta: '#b85c38',
-					sand: '#e8dcc8',
-					bark: '#5a3e28',
+					deep: '#1e3a2f',
+					mid: '#2e5e47',
+					light: '#5a9e78',
+					cream: '#f7f3ed',
+					ochre: '#b87333',
+					terracotta: '#a0522d',
+					sand: '#ede4d3',
+					bark: '#3b2a1a',
 				}
 			},
 			borderRadius: {

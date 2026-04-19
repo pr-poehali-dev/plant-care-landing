@@ -34,15 +34,15 @@
 
     --radius: 1rem;
 
-    /* Brand colors */
-    --green-deep: #2d5a27;
-    --green-mid: #4a7c3f;
-    --green-light: #7aad6a;
-    --cream: #f5f0e8;
-    --ochre: #c8863a;
-    --terracotta: #b85c38;
-    --sand: #e8dcc8;
-    --bark: #5a3e28;
+    /* Brand colors — благородная палитра */
+    --green-deep: #1e3a2f;
+    --green-mid: #2e5e47;
+    --green-light: #5a9e78;
+    --cream: #f7f3ed;
+    --ochre: #b87333;
+    --terracotta: #a0522d;
+    --sand: #ede4d3;
+    --bark: #3b2a1a;
   }
 }
 
