@@ -4,45 +4,35 @@
 
 @layer base {
   :root {
-    --background: 45 30% 96%;
-    --foreground: 30 20% 15%;
+    --background: 46 28% 96%;
+    --foreground: 24 18% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 30 20% 15%;
+    --card-foreground: 24 18% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 30 20% 15%;
+    --popover-foreground: 24 18% 14%;
 
-    --primary: 142 35% 28%;
-    --primary-foreground: 45 30% 96%;
+    --primary: 158 42% 22%;
+    --primary-foreground: 46 28% 96%;
 
-    --secondary: 32 40% 88%;
-    --secondary-foreground: 30 20% 15%;
+    --secondary: 38 30% 88%;
+    --secondary-foreground: 24 18% 14%;
 
-    --muted: 40 20% 92%;
-    --muted-foreground: 30 15% 45%;
+    --muted: 42 20% 92%;
+    --muted-foreground: 30 12% 48%;
 
-    --accent: 22 55% 55%;
+    --accent: 28 50% 48%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 35 20% 82%;
-    --input: 35 20% 82%;
-    --ring: 142 35% 28%;
+    --border: 36 18% 84%;
+    --input: 36 18% 84%;
+    --ring: 158 42% 22%;
 
-    --radius: 1rem;
-
-    /* Brand colors — благородная палитра */
-    --green-deep: #1e3a2f;
-    --green-mid: #2e5e47;
-    --green-light: #5a9e78;
-    --cream: #f7f3ed;
-    --ochre: #b87333;
-    --terracotta: #a0522d;
-    --sand: #ede4d3;
-    --bark: #3b2a1a;
+    --radius: 0.75rem;
   }
 }
 
@@ -54,6 +44,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: "Golos Text", sans-serif;
+    background-color: #f8f4ee;
   }
 
   h1,
@@ -64,64 +55,47 @@
   }
 }
 
-@layer utilities {
-  .font-cormorant {
-    font-family: "Cormorant", serif;
-  }
-
-  .font-golos {
-    font-family: "Golos Text", sans-serif;
-  }
+/* ── Цветовая система ─────────────────────── */
+:root {
+  --c-ink: #1c2a22; /* почти чёрный, лесной */
+  --c-forest: #243d2f; /* тёмно-изумрудный */
+  --c-sage: #3d6654; /* шалфей */
+  --c-fern: #5f8f72; /* папоротник */
+  --c-mist: #a8c4b0; /* дымчатый зелёный */
+  --c-parchment: #f8f4ee; /* пергамент */
+  --c-linen: #f0eae0; /* лён */
+  --c-sand: #e6ddd0; /* песок */
+  --c-stone: #c8bfb0; /* камень */
+  --c-gold: #b8893a; /* старое золото */
+  --c-copper: #96622a; /* медь */
+  --c-espresso: #2e1f10; /* эспрессо */
 }
 
-/* Organic wave dividers */
-.wave-top {
-  position: relative;
-}
-
-.wave-top::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: inherit;
-  clip-path: ellipse(55% 100% at 50% 0%);
-}
-
-/* Texture overlay */
+/* ── Текстуры ─────────────────────────────── */
 .texture-grain {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 256px 256px;
+  background-size: 200px 200px;
 }
 
-/* Leaf decorative */
-.leaf-bg {
-  background-image:
-    radial-gradient(
-      circle at 20% 50%,
-      rgba(74, 124, 63, 0.08) 0%,
-      transparent 60%
-    ),
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(45, 90, 39, 0.06) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 60% 80%,
-      rgba(122, 173, 106, 0.07) 0%,
-      transparent 40%
-    );
+.bg-parchment {
+  background-color: var(--c-parchment);
+}
+.bg-linen {
+  background-color: var(--c-linen);
+}
+.bg-forest {
+  background-color: var(--c-forest);
+}
+.bg-ink {
+  background-color: var(--c-ink);
 }
 
-/* Fade in animation */
+/* ── Анимации ─────────────────────────────── */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -129,93 +103,52 @@
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes float {
   0%,
   100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0) rotate(0deg);
   }
   50% {
-    transform: translateY(-12px) rotate(3deg);
-  }
-}
-
-@keyframes sway {
-  0%,
-  100% {
-    transform: rotate(-3deg);
-  }
-  50% {
-    transform: rotate(3deg);
+    transform: translateY(-10px) rotate(2deg);
   }
 }
 
 .animate-fade-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.7s ease-out forwards;
 }
-
 .animate-fade-up-delay-1 {
-  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  animation: fadeInUp 0.7s ease-out 0.15s forwards;
   opacity: 0;
 }
-
 .animate-fade-up-delay-2 {
-  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  animation: fadeInUp 0.7s ease-out 0.3s forwards;
   opacity: 0;
 }
-
 .animate-fade-up-delay-3 {
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  animation: fadeInUp 0.7s ease-out 0.45s forwards;
   opacity: 0;
 }
-
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 7s ease-in-out infinite;
 }
 
-.animate-sway {
-  animation: sway 4s ease-in-out infinite;
+/* ── Декоративная линия-разделитель ──────── */
+.section-rule {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--c-gold);
+  margin: 0 auto 1.5rem;
 }
 
-/* Botanical border */
-.botanical-border {
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  position: relative;
-}
-
-.botanical-border::after {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    var(--green-mid),
-    var(--ochre),
-    var(--green-light)
-  );
-  z-index: -1;
-}
-
-/* Custom scrollbar */
+/* ── Скролл ──────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
-
 ::-webkit-scrollbar-track {
-  background: var(--cream);
+  background: var(--c-linen);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: var(--green-mid);
+  background: var(--c-sage);
   border-radius: 3px;
 }
